@@ -1,0 +1,12 @@
+{
+  "name": "dltube",
+  "version": "1.0.0",
+  "description": "yt downloader wrapper for use in tv bcast",
+  "main": "dltube.js",
+  "license": "MIT",
+  "author": "Griffin Bauer",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "type": "module"
+}

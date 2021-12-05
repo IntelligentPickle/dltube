@@ -32,33 +32,17 @@ function filterRelease(release) {
 // Define a function to filter assets.
 function filterAssetYtdlp(asset) {
     switch (globalThis.choice) {
-        case 'windows (x64)':
+        case '🪟 windows (x64)':
             return asset.name === 'yt-dlp.exe';
             break;
-        case 'windows (x86)':
+        case '🪟 windows (x86)':
             return asset.name === 'yt-dlp_x86.exe';
             break;
-        case 'linux':
+        case '🐧 linux':
             return asset.name === 'yt-dlp'
             break;
         default:
-            console.error('Asset filter error; check filterAsset.')
-    }
-}
-
-function filterAssetFfmpeg(asset) {
-    switch (globalThis.choice) {
-        case 'windows (x64)':
-            return asset.name === 'win64-gpl.zip';
             break;
-        case 'windows (x86)':
-            return asset.name === 'win32-gpl.zip';
-            break;
-        case 'linux':
-            return asset.name === 'linux64-gpl'
-            break;
-        default:
-            console.error('Asset filter error; check filterAsset.')
     }
 }
 

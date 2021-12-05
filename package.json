@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "yt downloader wrapper for use in tv bcast",
   "main": "dltube.js",
+  "scripts": {
+    "start": "node dltube.js",
+    "ytdlp": "node getytdlp.js"
+  },
   "license": "MIT",
   "author": "Griffin Bauer",
   "dependencies": {
+    "@terascope/fetch-github-release": "^0.8.7",
     "inquirer": "^8.2.0"
   },
   "type": "module"

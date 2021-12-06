@@ -1,5 +1,31 @@
 import inquirer from "inquirer";
 import { execFile } from "child_process"
+import { readFile } from 'fs/promises'; // ES :/
+
+const config = JSON.parse(
+  await readFile(
+    new URL('./config.json', import.meta.url)
+  )
+);
+
+switch (config.dltube.ytdlpBinary) {
+    case 'yt-dlp':
+        // Linux binary
+        console.log(`YT-DLP binary is a linux binary!`)
+        break;
+    case 'yt-dlp.exe':
+        // Windows x64 binary
+        console.log(`YT-DLP binary is a Win x64 binary!`)
+        break;
+    case 'yt-dlp_x86.exe':
+        // Windows x86 binary
+        console.log(`YT-DLP binary is a Win x86 binary!`)
+        break;
+    default:
+        console.log(`YT-DLP binary "${config.dltube.ytdlpBinary}" is invalid; check config.json.`)
+        process.exit()
+        break;
+}
 
 async function menu() {
 

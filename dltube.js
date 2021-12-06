@@ -1,6 +1,7 @@
 import inquirer from "inquirer";
 import { execFile } from "child_process"
 import { readFile } from 'fs/promises'; // ES :/
+import fs from 'fs'
 
 const config = JSON.parse(
   await readFile(
@@ -8,24 +9,11 @@ const config = JSON.parse(
   )
 );
 
-switch (config.dltube.ytdlpBinary) {
-    case 'yt-dlp':
-        // Linux binary
-        console.log(`YT-DLP binary is a linux binary!`)
-        break;
-    case 'yt-dlp.exe':
-        // Windows x64 binary
-        console.log(`YT-DLP binary is a Win x64 binary!`)
-        break;
-    case 'yt-dlp_x86.exe':
-        // Windows x86 binary
-        console.log(`YT-DLP binary is a Win x86 binary!`)
-        break;
-    default:
-        console.log(`YT-DLP binary "${config.dltube.ytdlpBinary}" is invalid; check config.json.`)
-        process.exit()
-        break;
+if (!fs.existsSync(config.dltube.ytdlpBinary)) {
+    console.error(`YT-DLP binary (${config.dltube.ytdlpBinary}) is missing.\nCheck config.json, or run yarn run ytdlp.`)
+    process.exit();
 }
+
 
 async function menu() {
 
@@ -48,7 +36,6 @@ async function menu() {
             throw error;
     });
 }
-
 
 async function handleMenuResponse(a) {
 

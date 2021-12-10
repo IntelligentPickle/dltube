@@ -1,8 +1,11 @@
+// Import some needed modules
 import inquirer from "inquirer";
 import { downloadRelease } from "@terascope/fetch-github-release"
 import path from 'path'
 import fs from "fs";
 
+// Menu function; is called at the end of the file after all
+// function definitions.
 async function menu() {
     inquirer
             .prompt([
@@ -31,7 +34,7 @@ function filterRelease(release) {
     return release.prerelease === false;
   }
   
-// Define function to filter assets.
+// Functions for selecting assets in the ytdlp and ffmpeg repos.
 function filterAssetYtdlp(asset) {
     switch (globalThis.choice) {
         case '🪟 windows (x64)':
@@ -63,7 +66,8 @@ function filterAssetFfmpeg(asset) {
             break;
     }
 }
-// Functions for downloading.
+
+// Download functions.
 async function downloadYtdlp(ans) {
     switch (ans.choice) {
         case '🪟 windows (x64)':
@@ -139,7 +143,7 @@ async function downloadFfmpeg(ans) {
     }
 }
 
-// Manu handling
+// Menu response handling
 async function handleMenuResponse(a) {
     console.clear();
     switch (a.choice) {

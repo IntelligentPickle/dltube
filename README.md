@@ -9,7 +9,7 @@ Wrapper for Youtube-dlp. used in tv broadcast for school.
 Clone this repo.
 Run `yarn install`.
 
-Run `yarn run ytdlp` and navigate the menu to download YT-DLP.
+Run `yarn run prepare` and navigate the menu to download the required tools.
 Adjust binary names in config.json.
 
 Run `yarn run dltube`.

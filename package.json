@@ -5,7 +5,7 @@
   "main": "dltube.js",
   "scripts": {
     "start": "node dltube.js",
-    "ytdlp": "node getytdlp.js"
+    "prepare": "node prepare.js"
   },
   "license": "MIT",
   "author": "Griffin Bauer",

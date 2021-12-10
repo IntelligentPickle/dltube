@@ -67,7 +67,6 @@ function filterAssetFfmpeg(asset) {
 async function downloadYtdlp(ans) {
     switch (ans.choice) {
         case '🪟 windows (x64)':
-            console.log('Downloading YT-DLP for Windows x64!')
             downloadRelease('yt-dlp', 'yt-dlp', '.', filterRelease, filterAssetYtdlp, true, false)
                 .then(function() {
                     console.log('YTDLP: Downloaded');
@@ -77,7 +76,6 @@ async function downloadYtdlp(ans) {
             });
             break;
         case '🪟 windows (x86)':
-            console.log('Downloading for Windows x86!')
             downloadRelease('yt-dlp', 'yt-dlp', '.', filterRelease, filterAssetYtdlp, true, false)
                 .then(function() {
                     console.log('YTDLP: Downloaded');
@@ -87,7 +85,6 @@ async function downloadYtdlp(ans) {
             });
             break;
         case '🐧 linux':
-            console.log('Downloading for Linux!')
             downloadRelease('yt-dlp', 'yt-dlp', '.', filterRelease, filterAssetYtdlp, true, false)
                 .then(function() {
                     console.log('YTDLP: Downloaded');
@@ -103,7 +100,6 @@ async function downloadYtdlp(ans) {
 async function downloadFfmpeg(ans) {
     switch (ans.choice) {
         case '🪟 windows (x64)':
-            console.log('Downloading YT-DLP for Windows x64!')
             downloadRelease('yt-dlp', 'FFmpeg-Builds', '.', filterRelease, filterAssetFfmpeg, false, false)
                 .then(function(a) {
                     fs.rename(path.basename(a[0], '.zip'), 'ffmpeg', (e) => { console.error(e) })
@@ -114,9 +110,8 @@ async function downloadFfmpeg(ans) {
             });
             break;
         case '🪟 windows (x86)':
-            console.log('Downloading for Windows x86!')
             downloadRelease('yt-dlp', 'FFmpeg-Builds', '.', filterRelease, filterAssetFfmpeg, false, false)
-                .then(function() {
+                .then(function(a) {
                     fs.rename(path.basename(a[0], '.zip'), 'ffmpeg', (e) => { console.error(e) })
                     console.log('FFMPEG: Downloaded');
                 })
@@ -125,10 +120,8 @@ async function downloadFfmpeg(ans) {
             });
             break;
         case '🐧 linux':
-            console.log('Downloading for Linux!')
             downloadRelease('yt-dlp', 'FFmpeg-Builds', '.', filterRelease, filterAssetFfmpeg, false, false)
-                .then(function() {
-                    fs.rename(path.basename(a[0], '.zip'), 'ffmpeg', (e) => { console.error(e) })
+                .then(function(a) {
                     console.log('FFMPEG: Downloaded');
                 })
                 .catch(function(err) {

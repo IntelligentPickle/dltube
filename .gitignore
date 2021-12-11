@@ -1,5 +1,7 @@
 node_modules/
 
+// ffmpeg
+ffmpeg/
 
 // yt-dlp binarys
 yt-dlp

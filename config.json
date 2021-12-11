@@ -1,6 +1,6 @@
 {
     "dltube": {
-        "ytdlpBinary": "yt-dlp.exe",
-        "ffmpegDirectory": "./ffmpeg/"
+        "ytdlpBinary": "yt-dlp",
+        "ffmpegDirectory": "./ffmpeg/bin/"
     }
 }

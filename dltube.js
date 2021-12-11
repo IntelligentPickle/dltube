@@ -55,7 +55,8 @@ async function handleMenuResponse(a) {
             ])
             let e = execFile('./yt-dlp', [ link.ytlink, '--progress', '-q', '-f mp4', '--ffmpeg-location', config.dltube.ffmpegDirectory], (e) => {console.log(e)})
             e.stdout.pipe(process.stdout)
-            e.on('close', function(code) {
+            e.on('close', (code) => {
+                console.log(`YTDLP exited with code ${code}`)
                 menu();
             });
             break;
@@ -69,7 +70,8 @@ async function handleMenuResponse(a) {
             ])
             let eA = await execFile('./yt-dlp', [ linkA.ytlink, '--progress', '-q', '-x', '--audio-format', 'mp3','--ffmpeg-location', config.dltube.ffmpegDirectory], (e) => {console.log(e)})
             eA.stdout.pipe(process.stdout)
-            eA.on('close', function(code) {
+            eA.on('close', (code) => {
+                console.log(`YTDLP exited with code ${code}`)
                 menu();
             });
             break;
